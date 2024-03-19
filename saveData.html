@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function saveName() {
+            let name = document.getElementById("name").value;
+            let blob = new Blob([name], { type: 'text/plain'});
+
+            let a= document.createElement("a")
+            a.href = URL.createObjectURL(blob);
+            a.download = "data.txt";
+            document.body.appendChild(a);
+            a.click();
+        }
+        
+    </script>
+</head>
+<body>
+    <form>
+        <label>Input your name:</label>
+        <input type="text" id="name">
+        <button type="button" onclick="saveName()">save as file</button>
+    </form>
+</body>
+</html>
